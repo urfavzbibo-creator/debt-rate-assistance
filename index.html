@@ -23,7 +23,7 @@
             <div class="input-group">
                 <input type="number" id="debt-amount" placeholder="اكتب المبلغ / Enter amount">
             </div>
-            <button id="calc-btn">حساب وتوليد التذكرة</button>
+            <button id="calc-btn">حساب الخصم</button>
             <p id="calc-error" class="error-text" style="display: none; margin-top: 10px;">الرجاء إدخال مبلغ صحيح.</p>
             
             <div id="result-box" class="result-box" style="display: none;">
@@ -62,12 +62,18 @@
         <!-- TT Generator Card -->
         <div class="card">
             <h3 class="table-title">تذكرة النظام (TT)</h3>
-            <textarea id="tt-output" readonly placeholder="ستظهر التذكرة هنا بعد الحساب..."></textarea>
+            <label>المبلغ المدفوع (د.ك / KWD)</label>
+            <div class="input-group">
+                <input type="number" id="paid-amount" placeholder="أدخل المبلغ المدفوع / Enter paid amount">
+            </div>
+            <button id="generate-tt-btn" style="margin-bottom: 15px;">توليد التذكرة</button>
+            <p id="tt-error" class="error-text" style="display: none; margin-top: -5px; margin-bottom: 10px;">الرجاء إدخال المبلغ المدفوع.</p>
+
+            <textarea id="tt-output" readonly placeholder="ستظهر التذكرة هنا بعد إدخال المبلغ..."></textarea>
             <button id="copy-btn" class="secondary-btn">نسخ التذكرة</button>
         </div>
     </div>
 
-    <!-- Links the HTML to your JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
