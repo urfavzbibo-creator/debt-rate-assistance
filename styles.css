@@ -66,17 +66,10 @@ body {
     position: relative;
 }
 
-h1, h2 {
+h1 {
     font-weight: 700;
     margin-bottom: 5px;
     letter-spacing: 0.5px;
-}
-
-.subtitle {
-    text-align: center;
-    color: var(--text-muted);
-    margin-bottom: 15px;
-    font-size: 14px;
 }
 
 .neon-text {
@@ -161,26 +154,6 @@ button.secondary-btn {
 
 button.secondary-btn:hover {
     background-color: var(--neon-purple-dim);
-}
-
-.logout-btn {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: auto;
-    padding: 8px 16px;
-    font-size: 12px;
-    background-color: transparent;
-    border: 1px solid #2a2a35;
-    color: var(--text-muted);
-    box-shadow: none;
-}
-
-.logout-btn:hover {
-    border-color: var(--error-red);
-    color: var(--error-red);
-    background-color: transparent;
-    transform: none;
 }
 
 /* Result & Table */
