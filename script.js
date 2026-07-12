@@ -1,4 +1,4 @@
-// --- Calculator Logic ---
+// --- 1. Calculator Logic (Only calculates the debt now) ---
 document.getElementById("calc-btn").addEventListener("click", () => {
     const debtInput = document.getElementById("debt-amount").value;
     const debt = parseFloat(debtInput);
@@ -36,17 +36,37 @@ document.getElementById("calc-btn").addEventListener("click", () => {
     // Calculate (3 decimals for Kuwaiti Dinar)
     const finalAmount = (debt * rateDecimal).toFixed(3); 
 
-    // Update UI
+    // Update UI (But do NOT generate TT here anymore)
     document.getElementById("rate-percent").innerText = rateStr;
     document.getElementById("final-amount").innerText = finalAmount;
     document.getElementById("result-box").style.display = "block";
+});
 
-    // Generate TT (Removed agent name requirement)
-    const ttMessage = `تم سداد المبلغ المستحق للتسوية وقدره ${finalAmount} د.ك من قبل العميل. يرجى التكرم بإعادة توصيل الخطوط للرقم المعني.`;
+
+// --- 2. Generate TT Logic (Based on manual paid input) ---
+document.getElementById("generate-tt-btn").addEventListener("click", () => {
+    const paidInput = document.getElementById("paid-amount").value;
+    const paid = parseFloat(paidInput);
+    const ttErrorText = document.getElementById("tt-error");
+
+    // Check for valid paid amount
+    if (isNaN(paid) || paid <= 0) {
+        ttErrorText.style.display = "block";
+        return;
+    }
+
+    ttErrorText.style.display = "none";
+    
+    // Format to 3 decimals
+    const finalPaidAmount = paid.toFixed(3);
+
+    // Generate TT using the manually entered paid amount
+    const ttMessage = `تم سداد المبلغ المستحق للتسوية وقدره ${finalPaidAmount} د.ك من قبل العميل. يرجى التكرم بإعادة توصيل الخطوط للرقم المعني.`;
     document.getElementById("tt-output").value = ttMessage;
 });
 
-// --- Better Copy UX ---
+
+// --- 3. Better Copy UX ---
 document.getElementById("copy-btn").addEventListener("click", () => {
     const ttBox = document.getElementById("tt-output");
     const copyBtn = document.getElementById("copy-btn");
