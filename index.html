@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مديونات عملاء STC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-section" class="container fade-in">
+        <div class="logo-circle">STC</div>
+        <h2>بوابة الموظفين</h2>
+        <p class="subtitle">الرجاء تسجيل الدخول للمتابعة</p>
+        
+        <div class="input-group">
+            <input type="email" id="agent-email" placeholder="البريد الإلكتروني / Email">
+            <input type="password" id="agent-password" placeholder="كلمة المرور / Password">
+        </div>
+        
+        <button id="login-btn">تسجيل الدخول</button>
+        <p id="login-error" class="error-text" style="display: none;">بيانات الدخول غير صحيحة!</p>
+    </div>
+
+    <div id="app-section" class="container" style="display: none;">
+        
+        <div class="header">
+            <button id="logout-btn" class="logout-btn">تسجيل الخروج</button>
+            <div class="logo-circle">STC</div>
+            <h1>مديونات عملاء STC</h1>
+            <p id="welcome-message" class="neon-text"></p>
+        </div>
+
+        <div class="card">
+            <label>مديونية العميل بالكامل (د.ك / KWD)</label>
+            <div class="input-group">
+                <input type="number" id="debt-amount" placeholder="اكتب المبلغ / Enter amount">
+            </div>
+            <button id="calc-btn">حساب وتوليد التذكرة</button>
+            <p id="calc-error" class="error-text" style="display: none; margin-top: 10px;">الرجاء إدخال مبلغ صحيح.</p>
+            
+            <div id="result-box" class="result-box" style="display: none;">
+                <p>نسبة الخصم المطبقة: <span id="rate-percent" class="neon-text"></span></p>
+                <h3>المبلغ المطلوب سداده: <span id="final-amount" class="neon-text"></span> د.ك</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="table-title">جدول النسب / Rate Table</h3>
+            <table class="rate-table">
+                <tr>
+                    <td>100 د.ك وأقل</td>
+                    <td class="neon-text">100%</td>
+                </tr>
+                <tr>
+                    <td>100 - 300 د.ك</td>
+                    <td class="neon-text">33%</td>
+                </tr>
+                <tr>
+                    <td>300 - 700 د.ك</td>
+                    <td class="neon-text">20%</td>
+                </tr>
+                <tr>
+                    <td>700 - 1300 د.ك</td>
+                    <td class="neon-text">13%</td>
+                </tr>
+                <tr>
+                    <td>أكثر من 1300 د.ك</td>
+                    <td class="neon-text">8%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3 class="table-title">تذكرة النظام (TT)</h3>
+            <textarea id="tt-output" readonly placeholder="ستظهر التذكرة هنا بعد الحساب..."></textarea>
+            <button id="copy-btn" class="secondary-btn">نسخ التذكرة</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
