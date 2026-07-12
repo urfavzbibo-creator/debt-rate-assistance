@@ -1,8 +1,8 @@
 :root {
     --bg-dark: #09090b;
     --card-dark: #121217;
-    --neon-purple: #b026ff;
-    --neon-purple-dim: rgba(176, 38, 255, 0.2);
+    --neon-purple: #7400b8; /* Deeper, richer purple */
+    --neon-purple-dim: rgba(116, 0, 184, 0.25);
     --text-main: #ffffff;
     --text-muted: #8a8a93;
     --error-red: #ff3366;
@@ -135,7 +135,7 @@ button {
 }
 
 button:hover {
-    background-color: #981ae0;
+    background-color: #8b00d6; /* Slightly lighter on hover */
     box-shadow: 0 0 25px var(--neon-purple-dim);
     transform: translateY(-2px);
 }
